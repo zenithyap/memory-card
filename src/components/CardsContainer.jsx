@@ -2,7 +2,7 @@ import "../styles/card-container.css";
 import { useState } from "react";
 import Card from "./Card";
 
-export default function CardsContainer() {
+export default function CardsContainer({ score, setScore, setBestScore }) {
   const base = "https://pokeapi.co/api/v2/pokemon/";
   const [pokemons, setPokemons] = useState([
     "terapagos",
@@ -18,6 +18,7 @@ export default function CardsContainer() {
     "cosmog",
     "xerneas",
   ]);
+  const [clicked, setClicked] = useState([]);
 
   function shuffle() {
     const shuffled = [...pokemons];
@@ -29,10 +30,21 @@ export default function CardsContainer() {
     setPokemons(shuffled);
   }
 
+  function handleClick(pokemon) {
+    if (clicked.includes(pokemon)) {
+      setBestScore(score);
+      setScore(0);
+    } else {
+      setScore(prev => prev + 1);
+      setClicked(prev => [...prev, pokemon]);
+    }
+    shuffle();
+  }
+
   return (
     <div className="card-container">
       {pokemons.map((pokemon) => (
-        <Card handleClick={shuffle} url={base + pokemon} />
+        <Card handleClick={() => handleClick(pokemon)} url={base + pokemon} />
       ))}
     </div>
   );

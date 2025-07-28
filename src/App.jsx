@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <Header score={score} bestScore={bestScore} />
-      <CardsContainer />
+      <CardsContainer score={score} setScore={setScore} setBestScore={setBestScore} />
     </>
   );
 }
