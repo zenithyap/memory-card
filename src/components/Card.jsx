@@ -2,7 +2,7 @@ import "../styles/card.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-export default function Card({ url }) {
+export default function Card({ handleClick, url }) {
   const [name, setName] = useState("");
   const [sprite, setSprite] = useState(null);
 
@@ -18,9 +18,9 @@ export default function Card({ url }) {
   }, [url]);
 
   return (
-    <div className="card">
+    <button onClick={handleClick} className="card">
       <img src={sprite} alt="" />
       <p>{name}</p>
-    </div>
+    </button>
   );
 }

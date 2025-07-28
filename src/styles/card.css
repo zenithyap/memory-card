@@ -3,6 +3,12 @@
     border-radius: 10px;
     padding: 1rem 2rem;
     text-align: center;
+    border: none;
+    background-color: #FFF;
+}
+
+.card:hover {
+    cursor: pointer;
 }
 
 .card img {
