@@ -4,3 +4,9 @@
     padding: 1rem;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 }
+
+@media (max-width: 600px) {
+    .card-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}

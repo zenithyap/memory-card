@@ -14,3 +14,9 @@
 .card img {
     width: 200px;
 }
+
+@media (max-width: 600px) {
+    .card img {
+        width: fit-content;
+    }
+}
