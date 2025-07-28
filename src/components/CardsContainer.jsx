@@ -32,8 +32,9 @@ export default function CardsContainer({ score, setScore, setBestScore }) {
 
   function handleClick(pokemon) {
     if (clicked.includes(pokemon)) {
-      setBestScore(score);
+      setBestScore(prev => Math.max(prev, score));
       setScore(0);
+      setClicked([]);
     } else {
       setScore(prev => prev + 1);
       setClicked(prev => [...prev, pokemon]);
